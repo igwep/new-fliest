@@ -70,8 +70,8 @@
                 </div>
             </div>
           <div class="flex justify-center mt-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 items-center"> <!-- menu -->
-                <div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white  "><!-- menu card -->
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center section-menu"> <!-- menu -->
+                <div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white  mt-8"><!-- menu card -->
                     <div class="w-44 h-24 border-2 border-red-400 rounded-lg mt-4"><img src="/src/img/menu/brunchEgg.jpeg" alt="" class="w-full h-full"></div>
                     <div class="flex flex-col"><!-- title and pricing -->
                         <div class="flex justify-between gap-8  border-gray-400 p-1 border-b-2 mb-2"><h4 class="font-bold text-sm">BRUNCH-EGG</h4>
@@ -169,18 +169,35 @@
             price:15.9,
             desc: ' fluffy scrambled eggs, omelettes filled with cheese and veggies '
         },
-    ]
+    ];
     const linkList = document.querySelector('.link-list');
     const burger = document.querySelector('.burger');
-
+    const menuSection = document.querySelector('.section-menu');
     burger.addEventListener('click', function(){
         linkList.classList.toggle('h-[15rem]');
     });
-    window.addEventListener('DOMContentLoaded', function(){
+    window.addEventListener('DOMContentLoaded', function display(){
+        displayMenu(menu);
+    });
 
-    })
-
-    function 
+    function displayMenu(menuItem){
+        let displayMenu = menuItem.map(function(item){
+            return  `<div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white  mt-8">
+                    <div class="w-44 h-24 border-2 border-red-400 rounded-lg mt-4"><img src=${item.img} alt="" class="w-full h-full"></div>
+                    <div class="flex flex-col"><!-- title and pricing -->
+                        <div class="flex justify-between gap-8  border-gray-400 p-1 border-b-2 mb-2"><h4 class="font-bold text-sm">${item.title}</h4>
+                            <h4 class="text-red-800 font-bold">$${item.price}</h4></div>
+                            <div class="w-44">
+                                <p class="text-sm">${item.desc}</p>
+                            </div>
+                    </div>
+                </div>`;
+                
+        });
+        displayMenu = displayMenu.join("");
+        console.log(displayMenu);
+        menuSection.innerHTML = displayMenu;
+    };
 
 </script>
 </html>
