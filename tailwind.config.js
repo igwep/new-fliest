@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./dist/*.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        body:['Anek Devanagari']
+      }
+    },
   },
   plugins: [],
 }

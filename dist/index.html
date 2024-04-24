@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/src/output.css">
 </head>
-<body class="bg-white">
+<body class="bg-gray-400 font-body tracking-widest bg-contain" style="background-image: url('/src/img/menu/pexels-pixabay-326333.jpg');">
     <div class="relative min-h-screen"><!-- main container -->
         <div><!-- header -->
             <header class="px-5 bg-white h-20 relative z-10">
@@ -21,7 +21,7 @@
                         <ul class="flex w-full md:flex-row flex-col gap-5 ">
                             <li class="text-red-800 hover:bg-red-400 py-2 hover:text-white hover:translate-x-1 transition-all md:hover:bg-transparent md:hover:text-black md:hover:translate-x-0 font-semibold"><a href="">HOME</a></li>
                             <li class="text-red-800 hover:bg-red-400 py-2 hover:text-white hover:translate-x-1 transition-all md:hover:bg-transparent md:hover:text-black md:hover:translate-x-0 font-semibold"><a href="">ABOUT</a></li>
-                            <li class="text-red-800 hover:bg-red-400 py-2 hover:text-white hover:translate-x-1 transition-all md:hover:bg-transparent md:hover:text-black md:hover:translate-x-0 font-semibold"><a href="">PROFILE</a></li>
+                            <li class="text-red-800 hover:bg-red-400 py-2 hover:text-white hover:translate-x-1 transition-all md:hover:bg-transparent md:hover:text-black md:hover:translate-x-0 font-semibold"><a href="">GET RESERVATIONS</a></li>
                             <li class="text-red-800 hover:bg-red-400 py-2 hover:text-white hover:translate-x-1 transition-all md:hover:bg-transparent md:hover:text-black md:hover:translate-x-0 font-semibold"><a href="">BLOG</a></li>
     
                         </ul>
@@ -35,39 +35,74 @@
                 </nav>
             </header>
         </div><!-- hero section -->
-        <div class="md:h-[35rem] h-[20rem]  w-full relative overflow-hidden">
-            <section class="w-full h-full inset-0 bg-center bg-no-repeat bg-cover" style="background-image: url('/src/img/Fliest\ Foodshop.jpg'); filter: blur(4px); -webkit-filter: blur(2px);"></section>
+       <div class="">
+         <div class="md:h-[35rem] h-[20rem]  w-full relative overflow-hidden">
+            <section class="w-full h-full inset-0 bg-center bg-no-repeat bg-cover" style="background-image: url('/src/img/Fliest\ Foodshop.jpg'); filter: blur(2px); -webkit-filter: blur(1px);"></section>
             <div class="absolute inset-0 bg-black opacity-50 flex flex-col items-center md:justify-between justify-center text-white text-center">
-               <h2 class="text-2xl font-extrabold brightness-100"> FLIEST FOODSHOP</h2>
-               <p class="md:flex mt-4">THE PLEASANT EXPERIENCE TO YOUR TASTE BUDS</p> 
-               <button class="mt-8 cursor-pointer hover:bg-white hover:text-black border-2 rounded-md px-3 py-1 border-white">get start</button>
+               <h2 class="text-2xl font-extrabold brightness-200"> FLIEST FOODSHOP</h2>
+               <p class="md:flex mt-4 brightness-200">THE PLEASANT EXPERIENCE TO YOUR TASTE BUDS</p> 
+               <button class="mt-8 cursor-pointer hover:bg-white hover:text-black border-2 rounded-md px-3 py-1 border-white  font-extrabold">Get Started</button>
             </div>
            
         </div>
-        <div class="flex items-center justify-center mt-4 flex-col"><!-- reservations -->
-            <div class="border-b-2 border-red-400 pb-2"><p class="text-lg font-bold">GET RESERVATIONS</p></div>
+        <div class="flex items-center justify-center pt-4 flex-col bg-white"><!-- reservations -->
+            <div class="border-b-2 border-red-400 pb-2 "><p class="text-lg font-bold">GET RESERVATIONS</p></div>
         <div class=" mt-4 md:h-[35rem] h-[20rem]  w-full relative overflow-hidden">
             <section class="w-full h-full inset-0 bg-center bg-no-repeat bg-cover" style="background-image: url('/src/img/reservations.jpg');">
                 <div class="inset-0 bg-black opacity-50 absolute">
 
                 </div>
-               <div class="flex justify-between items-center  "><!-- reservations menu -->
-                <div class="" style="filter: blur(4px);"><P class="text-white text-2xl font-bold ">BOOK RESERVATIONS</P></div>
-                <div><form action="">
-                    <input type="text">
-                </form></div>
+               <div class="flex justify-center items-center  "><!-- reservations menu -->
+                <div class=" backdrop-blur-sm rounded-md shadow-md bg-white bg-opacity-5 mt-8 h-52 p-4"><P class="brightness-200 text-white text-xl font-bold ">BOOK RESERVATIONS</P>
+                </div>
+            
                </div> 
             </section>
-        </div>    
+        </div>     
         </div>
-        <div class="mt-4"><!-- latest updates -->
-            <div class="flex items-center justify-center">
-                <h1 class="text-lg font-bold border-b-2 border-red-400">LATEST UPDATES</h1>
+        <div class="mt-4 bg-gray-200 mx-4 rounded-lg shadow-2xl shadow-black border-white border-2"><!-- latest updates -->
+            <div class="flex items-center justify-center flex-col">
+                <h1 class="text-lg font-bold border-b-2 border-red-400 mt-2">Menu Items</h1>
+                <div class="flex gap-8 mt-4"><!-- buttons -->
+                    <button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold">Breakfast</button>
+                    <button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold">Lunch</button>
+                    <button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold">Dinner</button>
+                </div>
             </div>
+          <div class="flex justify-center mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 items-center"> <!-- menu -->
+                <div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white  "><!-- menu card -->
+                    <div class="w-44 h-24 border-2 border-red-400 rounded-lg mt-4"><img src="/src/img/menu/brunchEgg.jpeg" alt="" class="w-full h-full"></div>
+                    <div class="flex flex-col"><!-- title and pricing -->
+                        <div class="flex justify-between gap-8  border-gray-400 p-1 border-b-2 mb-2"><h4 class="font-bold text-sm">BRUNCH-EGG</h4>
+                            <h4 class="text-red-800 font-bold">$15.9</h4></div>
+                            <div class="w-44">
+                                <p class="text-sm"> fluffy scrambled eggs, omelettes filled with cheese and veggies </p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+          </div>  
         </div>
+       </div>
     </div>
 </body>
 <script>
+    const menu = [
+        {
+            id:1,
+            title: 'BRUNCH EGG',
+            category:'Dinner',
+            img:"/src/img/menu/brunchEgg.jpeg",
+            price:15.9,
+            desc: ' fluffy scrambled eggs, omelettes filled with cheese and veggies '
+        },
+    ]
+
+
+
+
+
     const linkList = document.querySelector('.link-list');
     const burger = document.querySelector('.burger');
 
