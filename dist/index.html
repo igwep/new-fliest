@@ -75,18 +75,10 @@
             </div>
           <div class="flex  flex-col items-center justify-center mt-4">
             <div class="grid grid-cols-1 md:grid-cols-2 items-center section-menu " id="menue"> <!-- menu -->
-                <div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white menuCard mt-8"><!-- menu card -->
-                    <div class="w-44 h-24 border-2 border-red-400 rounded-lg mt-4"><img src="/src/img/menu/brunchEgg.jpeg" alt="" class="w-full h-full"></div>
-                    <div class="flex flex-col"><!-- title and pricing -->
-                        <div class="flex justify-between gap-8  border-gray-400 p-1 border-b-2 mb-2"><h4 class="font-bold text-sm">BRUNCH-EGG</h4>
-                            <h4 class="text-red-800 font-bold">$15.9</h4></div>
-                            <div class="w-44">
-                                <p class="text-sm"> fluffy scrambled eggs, omelettes filled with cheese and veggies </p>
-                            </div>
-                    </div>
-                </div>
+                <!-- dynamically added -->
             </div>
-            <div class="mt-6"><button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold loadMore">load more</button></div>
+            <div class="mt-6"><button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold loadMore" data-id="loadMore">load more</button></div>
+            <div class="mt-6"><button class="border-2 border-red-800 py-1 px-2 rounded-md text-red-800 shadow-md hover:bg-red-800 hover:text-white font-semibold loadMore" data-id="loadLess">load less</button></div>
           </div>  
         </div>
        </div>
@@ -179,14 +171,13 @@
     const burger = document.querySelector('.burger');
     const menuSection = document.querySelector('.section-menu');
     const filterBtn = document.querySelectorAll('.filterBtn');
-    const loadMore = document.querySelector('.loadMore');
+    const loadMore = document.querySelectorAll('.loadMore');
     let currentImg = 4;
     const menuCard = document.querySelectorAll('.menuCard');
     burger.addEventListener('click', function(){
         linkList.classList.toggle('h-[15rem]');
     });
     let displayCount = 4;
-
     window.addEventListener('DOMContentLoaded', function display(){
         displayMenu(menu.slice(0, displayCount));
         
@@ -210,18 +201,40 @@
 
           });
 
-        });
-        loadMore.addEventListener('click', function(){
-            displayCount += 2;
+        }); 
+        /* you have to display them dynamically */ 
+      loadMore.forEach(function(btn){
+btn.addEventListener('click', function(e){
+    const loadCategory = e.currentTarget.dataset.id;
+    if(loadCategory === 'loadMore'){
+        displayCount += 2;
             displayMenu(menu.slice(0, displayCount));
-            
-        })
+            if(displayCount >= menu.length){
+                e.currentTarget.style.display = 'none';
+            };
+            if(displayCount <= 3){
+                e.currentTarget.style.display = 'block';
+            }
+    }
+    else{
+        displayCount = displayCount - 2;
+        displayMenu(menu.slice(0, displayCount));
+        if(displayCount <= 4){
+           
+            e.currentTarget.style.display = 'none';
 
+        };
+        if(displayCount >= 4){
+                e.currentTarget.style.display = 'block';
+            };
 
-
+    }
+    console.log(displayCount);
+})
+      });
     function displayMenu(menuItem){
         let displayMenu = menuItem.map(function(item){
-            return  `<div class=" shadow-xl shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white menuCard mt-8">
+            return  `<div class=" shadow-lg shadow-black flex flex-col items-center gap-4 w-56 p-2 rounded-md h-60 bg-white menuCard mt-8">
                     <div class="w-44 h-24 border-2 border-red-400 rounded-lg mt-4"><img src=${item.img} alt="" class="w-full h-full"></div>
                     <div class="flex flex-col"><!-- title and pricing -->
                         <div class="flex justify-between gap-8  border-gray-400 p-1 border-b-2 mb-2"><h4 class="font-bold text-sm">${item.title}</h4>
